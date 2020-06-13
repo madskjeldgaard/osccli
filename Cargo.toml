@@ -1,0 +1,9 @@
+[package]
+name = "osccli"
+version = "0.1.0"
+authors = ["mads kjeldgaard <mail@madskjeldgaard.dk>"]
+edition = "2018"
+
+[dependencies]
+nannou_osc = "0.14.0"    # The OSC API for Nannou, the creative coding framework.
+clap = "2.33.1"
