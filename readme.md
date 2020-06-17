@@ -19,6 +19,9 @@ Usage:
 run with `-h` flag to see all options: `osccli -h`:
 
 ```sh
+Mads Kjeldgaard <mail@madskjeldgaard.dk>
+Fast and simple cli tool for Open Sound Control communication, written in Rust
+
 USAGE:
     osccli [OPTIONS]
 
@@ -27,16 +30,10 @@ FLAGS:
     -V, --version    Prints version information
 
 OPTIONS:
-    -a, --address <address>      The osc address path part of the mes
-sage, eg /ping
-    -m, --argument <argument>    The contents of the message, eg. 1 o
-r 'hello'
-    -i, --ip <ip>                The ip address of the receiver, defa
-ult: 127.0.0.1
-    -p, --port <port>            The port of the receiver, default: 1
-234
-    -t, --type <type>            The type of the message. This is use
-d to parse the command line argument to a specific
-                                 OSC type, default: float
-
+    -a, --address <address>      The osc address path part of the message, eg /ping
+    -m, --argument <argument>    The contents of the message, eg. 1 or 'hello'
+    -i, --ip <ip>                The ip address of the receiver, default: 127.0.0.1
+    -p, --port <port>            The port of the receiver, default: 1234
+    -t, --type <type>            The type of the message. This is used to parse the command line argument to a specific
+                                 OSC type, options: float|int|double|string, default: string
 ```
