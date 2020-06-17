@@ -1,12 +1,10 @@
 /*
- * osccli
- * Simple command line tool for sending osc messages
- * usage: osccli send /path message 127.0.0.1 1234
+ * osccli by Mads Kjeldgaard, 2020
  *
  */
 use clap::{App, Arg};
 use nannou_osc as osc;
-// use std::env;
+mod parsers;
 
 const DEFAULT_IP: &str = "127.0.0.1";
 const DEFAULT_PORT: &str = "1234";
@@ -37,41 +35,7 @@ fn model() -> Model {
     model
 }
 
-fn parse_message(message: String, parse_to_type: Option<&str>) -> osc::Type {
-    match parse_to_type {
-        Some(parse_to_type) => match parse_to_type {
-            "float" => parse_message_as_float(message),
-            "int" => parse_message_as_int(message),
-            "string" => parse_message_as_string(message),
-            _ => {
-                println!("Unrecognized type. Falling back to String as type.",);
-                parse_message_as_string(message)
-            }
-        },
-        None => parse_message_as_string(message),
-    }
-}
-
-fn parse_message_as_int(message: String) -> osc::Type {
-    let parsed = message.parse::<i32>().unwrap();
-    osc::Type::Int(parsed)
-}
-
-fn parse_message_as_float(message: String) -> osc::Type {
-    println!("{}", message);
-    let parsed = message.parse::<f32>().unwrap();
-    osc::Type::Float(parsed)
-}
-
-fn parse_message_as_double(message: String) -> osc::Type {
-    let parsed = message.parse::<f64>().unwrap();
-    osc::Type::Double(parsed)
-}
-
-fn parse_message_as_string(message: String) -> osc::Type {
-    let parsed = message;
-    osc::Type::String(parsed)
-}
+fn add_arguments_to_model(model: &Model, arguments: Vec<&str>) {}
 
 fn main() {
     let matches = App::new("osccli")
@@ -138,7 +102,7 @@ fn main() {
         model.port = string.to_string()
     }
 
-    model.parsed = parse_message(model.argument, matches.value_of("type"));
+    model.parsed = parsers::parse_message(model.argument, matches.value_of("type"));
     let full_address = format!("{}:{}", model.ip, model.port);
 
     let sender = osc::sender()
