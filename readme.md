@@ -12,8 +12,12 @@ Example:
 
 `osccli -a /yo -m whatsup` will send the osc message `["/yo", "whatsup"]` to `127.0.0.1:1234`
 
+## Building
+Building is quite easy if you have rust and cargo installed, dependencies are handled by the same:
 
-# Usage
+`cargo build --release`
+
+## Usage
 Usage:
 run with `-h` flag to see all options: `osccli -h`:
 
