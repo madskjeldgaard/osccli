@@ -6,6 +6,7 @@ pub fn parse_message(message: String, parse_to_type: Option<&str>) -> osc::Type 
             "float" => parse_message_as_float(message),
             "int" => parse_message_as_int(message),
             "string" => parse_message_as_string(message),
+            "double" => parse_message_as_double(message),
             _ => {
                 println!("Unrecognized type. Falling back to String as type.",);
                 parse_message_as_string(message)

@@ -78,7 +78,7 @@ fn main() {
             Arg::with_name("type")
                 .short("t")
                 .long("type")
-                .help("The type of the message. This is used to parse the command line argument to a specific OSC type, default: float")
+                .help("The type of the message. This is used to parse the command line argument to a specific OSC type, options: float|int|double|string, default: string")
                 .required(false)
                 .takes_value(true)
         )
