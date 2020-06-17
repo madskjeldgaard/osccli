@@ -1,5 +1,4 @@
 # osccli
-## Send an osc command from the command line
 
 `osccli` is a simple and fast tool for sending OSC messages from the command line. It is written in Rust and among other things it lets you send custom messages and choose a type for them, the program will then try and parse the message you have passed to it as the type you have defined.
 
