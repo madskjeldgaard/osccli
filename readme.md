@@ -12,6 +12,13 @@ Example:
 
 `osccli -a /yo -m whatsup` will send the osc message `["/yo", "whatsup"]` to `127.0.0.1:1234`
 
+## Installing
+For users of Arch based distros `osccli` is available on the [aur](https://aur.archlinux.org) and may be installed via yay:
+
+```
+yay -S osccli
+```
+
 ## Building
 Building is quite easy if you have rust and cargo installed, dependencies are handled by the same:
 
